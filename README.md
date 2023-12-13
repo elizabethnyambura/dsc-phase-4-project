@@ -1,14 +1,17 @@
-# INTRODUCTION
+
+## SALES FORECASTING FOR SUPERSTORE SUPERMARKET
+
+## INTRODUCTION
 
 Superstore is a very large supermarket based in the United States of America with presence in all the states. They are best known for sale of office supplies, furniture and Technology supplies such as phones. Using Historical data, the company wants to forecast their future sales so as to plan and make informed decisions about future operations, marketing, and resource allocation.
 
 Accuracy in sale predictition helps firms to adjust their strategy accordingly, anticipate future demand and identify potential problems or opportunities. Sale forecasting is a very key task that businesses need to embrace.
 
-# OBJECTIVES
+## OBJECTIVES
 
 Superstore want to strategize their inventory management, logistics, production and manpower planning for the future. The objective of this project is to forecast future sales data by training supervised machine learning models on historical data.
 
-# DATA UNDERSTANDING
+## DATA UNDERSTANDING
 
 The dataset contains the historical order details of the customers of the superstore in all the stores in the United States. This is monthly data for shipped goods from the month of July in the year 2014 to May 2018.
 
@@ -36,7 +39,7 @@ Discount: Percentage of discount applied to the order.
 Profit: Profit generated from the order.
 
 
-# Exploratory Data Analysis
+## Exploratory Data Analysis
 
 **#Visualizing the dataset using lineplot**
 sns.lineplot(data)
@@ -73,13 +76,13 @@ Since the p-value is 0.00020180198458237758 ,which is less than 0.05 we conclude
 
 # MODELLING
 
-# ARIMA Model
+## ARIMA Model
 **plotting the test set(actual) and predict model(forecast) to see a comparisson**
 Plot forecasts against actual outcomes
 
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/3a1276cf-c1d9-4fb2-bd20-7fd4e64769cd)
 
-# SARIMA Model
+## SARIMA Model
 
 Decomposition of the time series shows that it has an annual seasonality,Our series has a frequency of 12 months. We will therefore build a SARIMAX model with a period of 12 months.
 
@@ -87,16 +90,16 @@ Decomposition of the time series shows that it has an annual seasonality,Our ser
 Plot forecasts against actual outcomes
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/10f0221a-0353-46f4-9083-a88cba0edb5e)
 
-# Facebook Prophet Model
+## Facebook Prophet Model
 **Plot the original data and the forecast**
 
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/293bf341-faaf-42d8-adf5-25feb94e7841)
 
-# CONCLUSION
+## CONCLUSION
 
 After thorough model evaluation among the three models, Arima, Sarima and Facebook Prophet. Using the RMSE of the three models ; Facebook prophet had the least RMSE value. This study therefore used Facebook Prophet to forecast sales for Superstore supermarket. The prediction indicates a deep in sales. The month of January 2018 will experience the lowest deep with sales as low as 110.
 
-# RECOMMENDATIONS
+## RECOMMENDATIONS
 
 This study recommends: Increased use of digital marketting strategy to promote sales in future.
 The sales team should also consider discounts in future so as to entice customers thereby increasing sales. Since there is probability of decline in sales in the future, the Company should avoid overstocking.
