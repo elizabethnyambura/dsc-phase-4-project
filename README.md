@@ -1,7 +1,7 @@
 
 ## SALES FORECASTING FOR SUPERSTORE SUPERMARKET
 
-## INTRODUCTION
+### INTRODUCTION
 
 Superstore is a very large supermarket based in the United States of America with presence in all the states. They are best known for sale of office supplies, furniture and Technology supplies such as phones. Using Historical data, the company wants to forecast their future sales so as to plan and make informed decisions about future operations, marketing, and resource allocation.
 
