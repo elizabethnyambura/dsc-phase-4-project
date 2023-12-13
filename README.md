@@ -1,4 +1,4 @@
-**Business Understanding and Requirement**
+*Business Understanding and Requirement*
 
 ***Introduction***
 
@@ -7,9 +7,11 @@ Superstore is a very large supermarket based in the United States of America wit
 Accuracy in sale predictition helps firms to adjust their strategy accordingly, anticipate future demand and identify potential problems or opportunities. Sale forecasting is a very key task that businesses need to embrace.
 
 ***Objective of the Study***
+
 Superstore want to strategize their inventory management, logistics, production and manpower planning for the future. The objective of this project is to forecast future sales data by training supervised machine learning models on historical data.
 
 ***Data Understanding***
+
 The dataset contains the historical order details of the customers of the superstore in all the stores in the United States. This is monthly data for shipped goods from the month of July in the year 2014 to May 2018.
 
 The dataset contains 9994 rows and 21 Columns. Below is the description of each column:
@@ -44,16 +46,16 @@ sns.lineplot(data)
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/4856ea40-26c5-4675-8344-5fabc05b2c21)
 
 #To remove noise in our dataset by resampling. 
-# Where you decrease the frequency of the sales, such as from days to months
+Where you decrease the frequency of the sales, such as from days to months
 #Visualizing the monthly sales dataset using lineplot
 sns.lineplot(monthly_data)
 
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/e33c10ad-0351-442f-90f2-3a2e78aa1740)
 
 **Checking for Trend**
-# Checking for trend using rolling mean
+Checking for trend using rolling mean
 rolling_mean = monthly_data.rolling(window=6).mean()
-# comparing the two lineplot
+comparing the two lineplot
 sns.lineplot(monthly_data, x="Order Date",y="Sales", color='green')
 sns.lineplot(rolling_mean)
 
@@ -72,8 +74,8 @@ Since the p-value is 0.00020180198458237758 ,which is less than 0.05 we conclude
 ***Modelling***
 
 **ARIMA Model**
-# plotting the test set(actual) and predict model(forecast) to see a comparisson
-# Plot forecasts against actual outcomes
+plotting the test set(actual) and predict model(forecast) to see a comparisson
+Plot forecasts against actual outcomes
 
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/3a1276cf-c1d9-4fb2-bd20-7fd4e64769cd)
 
@@ -81,8 +83,8 @@ Since the p-value is 0.00020180198458237758 ,which is less than 0.05 we conclude
 
 Decomposition of the time series shows that it has an annual seasonality,Our series has a frequency of 12 months. We will therefore build a SARIMAX model with a period of 12 months.
 
-# plotting the test set(actual) and predict model(forecast) to see a comparisson
-# Plot forecasts against actual outcomes
+plotting the test set(actual) and predict model(forecast) to see a comparisson
+Plot forecasts against actual outcomes
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/10f0221a-0353-46f4-9083-a88cba0edb5e)
 
 **Facebook Prophet Model**
