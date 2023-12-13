@@ -1,206 +1,115 @@
-# Phase 4 Project Description
+**Business Understanding and Requirement**
 
-Final phase down -- you're absolutely crushing it! You've made it all the way through one of the toughest phases of this course. You must have an amazing brain in your head!
+***Introduction***
 
-<img src='https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-4-project-v2-3/main/images/brain.gif'>
+Superstore is a very large supermarket based in the United States of America with presence in all the states. They are best known for sale of office supplies, furniture and Technology supplies such as phones. Using Historical data, the company wants to forecast their future sales so as to plan and make informed decisions about future operations, marketing, and resource allocation.
 
-You have one last project to complete before the Capstone!
+Accuracy in sale predictition helps firms to adjust their strategy accordingly, anticipate future demand and identify potential problems or opportunities. Sale forecasting is a very key task that businesses need to embrace.
 
-In this project description, we will cover:
+***Objective of the Study***
+Superstore want to strategize their inventory management, logistics, production and manpower planning for the future. The objective of this project is to forecast future sales data by training supervised machine learning models on historical data.
 
-* Project Overview
-* Deliverables
-* Grading
-* Getting Started
+***Data Understanding***
+The dataset contains the historical order details of the customers of the superstore in all the stores in the United States. This is monthly data for shipped goods from the month of July in the year 2014 to May 2018.
 
-## Project Overview
+The dataset contains 9994 rows and 21 Columns. Below is the description of each column:
 
-For this project, you will engage in an **advanced supervised modeling process** from start to finish, solving either a classification or a regression problem using an advanced dataset.
+Order ID: Unique identifier for each order.
+Order Date: Date when the order was placed.
+Ship Date: Date when the order was shipped.
+Ship Mode: Shipping mode used for the order (e.g., First Class, Standard Class, Second Class, Same Day).
+Customer ID: Unique identifier for each customer.
+Customer Name: Name of the customer.
+Segment: Segmentation of customers (Consumer, Corporate, Home Office).
+Country: Country where the store operates (contains only United States).
+City: City where the order was shipped.
+State: State where the order was shipped.
+Postal Code: Postal code of the shipping address.
+Region: Geographical region of the United States (e.g., East, West, North, South).
+Product ID: Unique identifier for each product.
+Category: Category of the product (Furniture, Office Supplies, Technology).
+Sub-Category: Sub-category of the product (Bookcases, Chairs, Labels, Tables, Storage, Furnishings, Art, Phones, Binders, Paper, Appliances, Accessories, Copiers, Envelopes, Fasteners, Machines, Supplies).
+Product Name: Name of the product.
+Sales: Total sales revenue for the order.
+Quantity: Quantity of products ordered.
+Discount: Percentage of discount applied to the order.
+Profit: Profit generated from the order.
 
-### Business Problem and Data
 
-Similar to the Phase 3 project, you are responsible for choosing a dataset as well as defining a stakeholder and business problem. In addition to these choices, you can choose between any of the four advanced supervised modeling techniques covered in Phase 4:
+**Exploratory Data Analysis**
 
-- Time Series Modeling
-- Recommendation System
-- Image Classification with Deep Learning
-- Natural Language Processing
+#Visualizing the dataset using lineplot
+sns.lineplot(data)
 
-For complete details, see [Phase 4 Project - Choosing a Dataset](https://github.com/learn-co-curriculum/dsc-phase-4-choosing-a-dataset).
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/4856ea40-26c5-4675-8344-5fabc05b2c21)
 
-### Key Points
+#To remove noise in our dataset by resampling. 
+# Where you decrease the frequency of the sales, such as from days to months
+#Visualizing the monthly sales dataset using lineplot
+sns.lineplot(monthly_data)
 
-### Advanced Data Types and Modeling
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/e33c10ad-0351-442f-90f2-3a2e78aa1740)
 
-The purpose of this project is to demonstrate that you have mastered the basics of some type of modeling technique beyond the techniques introduced in Phase 3. This is your chance to tailor your work to a **data science audience** in particular, with a clear notebook narrative that illustrates your process. The resulting presentation slides will be substantially similar to a Phase 3 presentation, but someone reading your notebook should be able to see your grasp of the specific advanced modeling technique.
+**Checking for Trend**
+# Checking for trend using rolling mean
+rolling_mean = monthly_data.rolling(window=6).mean()
+# comparing the two lineplot
+sns.lineplot(monthly_data, x="Order Date",y="Sales", color='green')
+sns.lineplot(rolling_mean)
 
-### Validation Strategy
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/4bf3278f-fbc8-4390-8e05-e481d2f51ed9)
 
-A **validation strategy** means a strategy to demonstrate that your model will actually perform well on unseen data. In Phase 3 this was relatively straightforward to accomplish with the `train_test_split` function from scikit-learn. This may or may not be appropriate for the project you select. Make sure that you are thinking about this strategy from the start and incorporating it into your notebook narrative.
+# visualizing the distribution of the dataset
+sns.displot(monthly_data, kde=True)
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/5a1e2763-01ef-42b6-8219-89c57c77211e)
 
-### Choosing a Dataset
+#Checking for sattionarity using dickyfuller test on monthly data
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/340561ab-77cb-4459-832e-c7f70ef4a7ba)
 
-We've given you a lot of choices - don't get stuck spending too much time choosing which project to do. Give yourself a firm time limit for picking a project (e.g. 2 hours) so you can get on with making something great. Don't worry about picking the perfect project - remember that you will get to do a new, larger Capstone project very soon!
+Since the p-value is 0.00020180198458237758 ,which is less than 0.05 we conclude that the data is stationary
 
-## The Deliverables
 
-There are three deliverables for this project:
+***Modelling***
 
-* A **non-technical presentation**
-* A **Jupyter Notebook**
-* A **GitHub repository**
+**ARIMA Model**
+# plotting the test set(actual) and predict model(forecast) to see a comparisson
+# Plot forecasts against actual outcomes
 
-The checklist of requirements is the same for Phase 4 as it was in Phase 3. This will also be the checklist for Capstone!
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/3a1276cf-c1d9-4fb2-bd20-7fd4e64769cd)
 
-### Non-Technical Presentation
+**SARIMA Model**
 
-The non-technical presentation should be very similar to the presentation you gave in Phase 3. You can feel free to mention the specific models and metrics you used, but make sure you translate everything for an audience who is not familiar with data science.
+Decomposition of the time series shows that it has an annual seasonality,Our series has a frequency of 12 months. We will therefore build a SARIMAX model with a period of 12 months.
 
-### Jupyter Notebook
+# plotting the test set(actual) and predict model(forecast) to see a comparisson
+# Plot forecasts against actual outcomes
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/10f0221a-0353-46f4-9083-a88cba0edb5e)
 
-The notebook will have the same checklist elements as in Phase 3. However, **this time around the Communication rubric element will focus on the technical notebook**. A data science professional reading your notebook should be able to understand all of your data preparation and modeling decisions.
+**Facebook Prophet Model**
+# Plot the original data and the forecast
 
-### GitHub Repository
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/293bf341-faaf-42d8-adf5-25feb94e7841)
 
-The GitHub repository should also be very similar to the Phase 3 repository.
+***Conclusion***
+After thorough model evaluation among the three models, Arima, Sarima and Facebook Prophet. Using the RMSE of the three models ; Facebook prophet had the least RMSE value. This study therefore used Facebook Prophet to forecast sales for Superstore supermarket. The prediction indicates a deep in sales. The month of January 2018 will experience the lowest deep with sales as low as 110.
 
-The main additional element to consider is **reproducibility**, since many of the dataset options are too large to be saved directly in a GitHub repository. Make sure you include clear instructions for how someone would reproduce your modeling process, potentially including any scripts you used to organize data into directories.
+***Recommendations***
+This study recommends: Increased use of digital marketting strategy to promote sales in future.
+The sales team should also consider discounts in future so as to entice customers thereby increasing sales. Since there is probability of decline in sales in the future, the Company should avoid overstocking.
 
-## Grading
 
-***To pass this project, you must pass each rubric objective.*** The project rubric objectives for Phase 4 are:
 
-1. Attention to Detail
-2. Advanced ML Communication
-3. Advanced Data Preparation
-4. Advanced ML Modeling
+ 
 
-### Attention to Detail
 
-Once again, the Attention to Detail standard has increased. ***In Phase 4, you need to complete 90% (9 out of 10) or more of the checklist elements in order to pass the Attention to Detail objective.***
 
-**NOTE THAT THE PASSING BAR IS HIGHER IN PHASE 4 THAN IT WAS IN PHASE 3!**
 
-#### Exceeds Objective
 
-100% of the project checklist items are complete
 
-#### Meets Objective (Passing Bar)
 
-90% of the project checklist items are complete
 
-#### Approaching Objective
 
-80% of the project checklist items are complete
 
-#### Does Not Meet Objective
 
-70% or fewer of the project checklist items are complete
 
-### Advanced ML Communication
 
-Once again, you are expected to communicate the results of an ML modeling process. Just like in Phase 3, we are looking for *rationale, results, limitations, and recommendations.*
-
-In Phase 4, the emphasis is on the **Jupyter Notebook**. The notebook should include a **summary** at the beginning that briefly and accurately describes your process. The summary should be approximately 250 words -- about the size of a research paper abstract.
-
-Summary elements:
-
-* Business and data understanding: *what kind of data are you using, and what makes it well-suited for the business problem?*
-  * You do not need to include any data visualizations in your summary, but consider including relevant descriptive statistics
-* Data preparation: *why did you choose the data preparation steps that you did, and what was the result?*
-  * This should be specific to the kind of data you are working with. For example, if you are doing an NLP project, what did you decide to do with stopwords?
-  * Be sure to list the packages/libraries used to prepare the data, and why
-* Modeling: *what modeling package(s) did you use, which model(s) within the package(s), and what tuning steps did you take?*
-  * For some projects there may be only one applicable package; you should still briefly explain why this was the appropriate choice
-  * For neural networks projects, be sure to describe your model architecture choices
-* Evaluation: *how well did your final model perform?*
-  * Include one or more relevant metrics
-  * Be sure to briefly describe your validation approach
-
-#### Exceeds Objective
-
-Communicates advanced modeling summary as well as a narrative throughout the notebook text that demonstrates mastery of an advanced topic
-
-> Decisions should be justified and outcomes evaluated in Markdown throughout the notebook
-
-#### Meets Objective (Passing Bar)
-
-Successfully communicates a summary of an advanced modeling technique including business and data understanding, data preparation, modeling, and evaluation
-
-> It is possible to meet this bar with just a summary and not a narrative throughout the notebook, so long as the steps taken are justifiable and free of major errors. See the Approaching Objective section for an explanation of what a "major error" means.
-
-#### Approaching Objective
-
-Communicates advanced modeling summary with at least one major error
-
-> A major error means that one of the required elements of the summary was missing, or some aspect of the communication was fundamentally incorrect. For example, if you stated that you performed "deep learning" when you actually used `CountVectorizer` and `MultinomialNB` from scikit-learn, that would be a major error. Another example would be if you described a regression task as a classification task, or if you described supervised learning as unsupervised learning.
-
-#### Does Not Meet Objective
-
-Does not communicate advanced modeling summary
-
-> Markdown headings and occasional narrative text throughout the notebook are not sufficient in this phase, even if they were in previous phases. You need to include a summary at the beginning of your notebook.
-
-### Advanced Data Preparation
-
-Once again, this objective is very similar to Phase 3, although the complexity has increased.
-
-#### Exceeds Objective
-
-Goes above and beyond with data preparation, such as feature engineering, using pipelines, or using unsupervised techniques
-
-> Supervised learning is the core of this project, but feel free to use unsupervised techniques for data analysis or preparation
-
-#### Meets Objective (Passing Bar)
-
-Successfully prepares data for modeling, using at least one Python package other than scikit-learn
-
-> Your final model does not need to use anything other than scikit-learn, but you should explore other tools during your modeling process
-
-#### Approaching Objective
-
-Prepares some data successfully, but has at least one major error
-
-#### Does Not Meet Objective
-
-Does not prepare data for modeling
-
-### Advanced ML Modeling
-
-This is your real opportunity to flex those new Phase 4 skills!
-
-#### Exceeds Objective
-
-Goes above and beyond in the modeling process, such as using models from multiple different packages or model explainability tools
-
-> You are encouraged but not required to use models from multiple different packages. The feasibility of this depends on your choice of project. For time series, this might mean trying both StatsModels and Prophet. For image classification, this might mean using TensorFlow with and without transfer learning.
-
-> See [this book chapter](https://christophm.github.io/interpretable-ml-book/lime.html) for an introduction to LIME for model explainability
-
-#### Meets Objective (Passing Bar)
-
-Successfully builds and evaluates multiple models using an appropriate model validation technique
-
-> As noted previously, the `train_test_split` from scikit-learn may or may not be appropriate for your modeling task. Be sure to investigate appropriate techniques so you are confident in the performance of your final model on unseen data
-
-#### Approaching Objective
-
-Builds multiple models with at least one major error
-
-#### Does Not Meet Objective
-
-Does not build multiple models
-
-## Getting Started
-
-Please start by reviewing the contents of this project description. If you have any questions, please ask your instructor ASAP.
-
-Once you are ready to begin the project, you will need to complete the Project Proposal.
-
-Recall that more information is available in [Phase 4 Project - Choosing a Dataset](https://github.com/learn-co-curriculum/dsc-phase-4-choosing-a-dataset).
-
-To get started with project development, create a new repository on GitHub. For this project, we recommend that you do not fork the template repository, but rather that you make a new repository from scratch, starting by going to [github.com/new](https://github.com/new).
-
-## Summary
-
-This project is your chance to show off your data science prowess with some advanced machine learning algorithms. Now that you've gone through all of the core course content, we're excited to see what you are able to do!
