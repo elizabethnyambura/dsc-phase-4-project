@@ -82,13 +82,15 @@ Plot forecasts against actual outcomes
 
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/3a1276cf-c1d9-4fb2-bd20-7fd4e64769cd)
 
-### SARIMA Model
 
-Decomposition of the time series shows that it has an annual seasonality,Our series has a frequency of 12 months. We will therefore build a SARIMAX model with a period of 12 months.
+### PMDARIMA Model
+# plotting the test set(actual) and predict model(frecast) to see a comparisson
+# Plot forecasts against actual outcomes
 
-**plotting the test set(actual) and predict model(forecast) to see a comparisson**
-Plot forecasts against actual outcomes
-![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/10f0221a-0353-46f4-9083-a88cba0edb5e)
+PMDARIMA Model - MSE: 1640.99, RMSE: 40.51
+![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/290ade44-b45f-46d3-bb01-b560faf6b625)
+
+
 
 ### Facebook Prophet Model
 **Plot the original data and the forecast**
