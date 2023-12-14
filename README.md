@@ -94,7 +94,7 @@ PMDARIMA Model - MSE: 1640.99, RMSE: 40.51
 
 ### Facebook Prophet Model
 **Plot the original data and the forecast**
-
+Facebook Prophet Model - MSE: 2544.91, RMSE: 50.45
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/293bf341-faaf-42d8-adf5-25feb94e7841)
 
 ### CONCLUSION
