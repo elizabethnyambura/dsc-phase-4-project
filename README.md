@@ -84,8 +84,8 @@ Plot forecasts against actual outcomes
 
 
 ### PMDARIMA Model
-# plotting the test set(actual) and predict model(frecast) to see a comparisson
-# Plot forecasts against actual outcomes
+plotting the test set(actual) and predict model(frecast) to see a comparisson
+Plot forecasts against actual outcomes
 
 PMDARIMA Model - MSE: 1640.99, RMSE: 40.51
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/290ade44-b45f-46d3-bb01-b560faf6b625)
