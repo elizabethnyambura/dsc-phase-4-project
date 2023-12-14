@@ -97,15 +97,22 @@ PMDARIMA Model - MSE: 1640.99, RMSE: 40.51
 Facebook Prophet Model - MSE: 2544.91, RMSE: 50.45
 ![image](https://github.com/elizabethnyambura/dsc-phase-4-project/assets/136367890/293bf341-faaf-42d8-adf5-25feb94e7841)
 
-### CONCLUSION
+### Findings
+Based on the provided analysis, the model evaluation metrics for the three models are as follows:
 
-After thorough model evaluation among the three models, Arima, Sarima and Facebook Prophet. Using the RMSE of the three models ; Facebook prophet had the least RMSE value. This study therefore used Facebook Prophet to forecast sales for Superstore supermarket. The prediction indicates a deep in sales. The month of January 2018 will experience the lowest deep with sales as low as 110.
+**ARIMA Model:**
 
-### RECOMMENDATIONS
+Best ARIMA Order: (0, 1, 1) AIC: 505.25 MSE: 1707.47 RMSE: 41.32
 
+PMDARIMA Model: AIC: 387.39 MSE: 1640.99 RMSE: 40.51 Facebook Prophet Model:
+
+MSE: 2544.91 RMSE: 50.45 Given the MSE and RMSE values, the PMDARIMA model is the best model because it has the lowest MSE and RMSE values.Arima Model is the second best model then followed by Facebook Prophet model. Facebook prophet model on the other hand, has higher MSE and RMSE values, indicating higher prediction errors compared to the ARIMA models.
+
+Therefore, based on the provided metrics,PMDARIMA model is the best choice for this specific forecasting task. Further analysis and consideration of additional factors could help make a more informed decision.
+
+## Recommendations
 This study recommends: Increased use of digital marketting strategy to promote sales in future.
-The sales team should also consider discounts in future so as to entice customers thereby increasing sales. Since there is probability of decline in sales in the future, the Company should avoid overstocking.
-
+The sales team should also consider discounts in future so as to entice customers thereby increasing sales. Since there is probability of decline in sales in the future, the Company should avoid overstocking. Further analysis and consideration of additional factors could help make a more informed decision.
 
 
  
