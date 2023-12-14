@@ -76,6 +76,7 @@ Since the p-value is 0.00020180198458237758 ,which is less than 0.05 we conclude
 
 # MODELLING
 
+ARIMA Model - MSE: 1707.47, RMSE: 41.32
 ### ARIMA Model
 **plotting the test set(actual) and predict model(forecast) to see a comparisson**
 Plot forecasts against actual outcomes
